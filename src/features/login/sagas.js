@@ -20,6 +20,7 @@ function* login(action) {
       let sessionResponse = yield call(sessionRest.setCurrentSessionLocation, { location: sessionLocation });
       yield put(sessionActions.fetchSessionSucceeded(sessionResponse, authorization));
       yield put(loginActions.loginSucceeded());
+      location.reload();
     }
     else {
       yield put(loginActions.loginFailed("Invalid username or password"));
